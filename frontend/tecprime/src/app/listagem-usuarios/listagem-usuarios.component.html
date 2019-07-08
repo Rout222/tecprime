@@ -1,0 +1,30 @@
+<h2> Usuários cadastrados </h2>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">Name</th>
+    <th scope="col">Avatar</th>
+    <th scope="col">E-mail</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of users">
+    <th scope="row">{{ user.first_name }} {{ user.last_name}} </th>
+    <td>
+      <img [src]="user.avatar" class="mr-2" style="width: 100px">
+    </td>
+    <td>{{ user.email}}</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="d-flex justify-content-between p-2">
+    <ngb-pagination [collectionSize]="total" [pageSize]="per_page" [(page)]="page" (pageChange)="carregarPagina($event)"></ngb-pagination>
+
+    <select class="custom-select" style="width: auto" [(ngModel)]="per_page">
+        <option [ngValue]="3" selected>3 items per page</option>
+        <option [ngValue]="6">6 items per page</option>
+        <option [ngValue]="9">9 items per page</option>
+    </select>
+</div>
