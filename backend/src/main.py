@@ -66,6 +66,7 @@ def getUsers():
         data = dadostotal[datamin:datamax]
     res = {"page" : page, 'per_page' : per_page, "total" : total, 'total_pages' : ceil(total/per_page), "data": data}
     return jsonify(res)
+    # return jsonify(data)
 
 @app.route('/users/<int:id>', methods=['GET']) # pegar um usuário
 def getUser(id):
